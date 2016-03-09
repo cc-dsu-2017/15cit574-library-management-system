@@ -1,0 +1,57 @@
+# Site settings
+title: Library Management System
+company: The Hive
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Yet Another Library Management System
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "yalms.ccdsu2015.cf"
+twitter_username: abhishekmunie
+github_username:  abhishekmunie
+
+# Build settings
+source: jekyll
+destination: src/main/webapp/
+markdown: kramdown
+highlighter: rouge
+exclude: []
+keep_files: [
+    'WEB-INF/web.xml', 'WEB-INF/appengine-web.xml', 'WEB-INF/dispatcher-servlet.xml', 'WEB-INF/logging.properties', 'WEB-INF/spring',
+    'META-INF', 'bower_components', 'resources', 'styles', 'scripts', 'images', 'fonts',
+    'service-worker.js',
+    'favicon.ico', 'tile.png', 'tile-wide.png', 'favicon.ico', 'apple-touch-icon.png', 'apple-touch-icon-precomposed.png',
+    'LICENSE.txt', 'robots.txt', 'browserconfig.xml', 'crossdomain.xml', 'humans.txt', 'manifest.json', 'manifest.webapp'
+  ]
+gems:
+  - jekyll-assets
+  - jekyll-sitemap
+  - octopress-minify-html
+  - octopress-filters
+
+minify_html: true
+
+title_prefix:
+title_suffix: ePLS
+tagline: ""
+home: https://yalms.ccdsu2015.cf
+search_title: yalms.ccdsu2015.cf
+
+production_url : https://yalms.ccdsu2015.cf
+
+github_repository: https://github.com/cc-dsu-2017/15cit574-library-management-system
+licence: MIT
+
+main_nav:
+  About: /about
+  Contact: /contact
+
+imports:
+  css:
+    main:         /styles/main.css
+  js:
+    main:         /scripts/main.js
+
+config:
+  google:
+    # analytics:
+    #   id: UA-XXXXX-X

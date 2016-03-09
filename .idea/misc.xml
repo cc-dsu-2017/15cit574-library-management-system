@@ -24,7 +24,19 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/.babelrc" />
+    <file url="file://$PROJECT_DIR$/.bowerrc" />
+    <file url="file://$PROJECT_DIR$/.travis.yml" />
+    <file url="file://$PROJECT_DIR$/_config.dev.yml" />
+    <file url="file://$PROJECT_DIR$/_config.yml" />
+    <file url="file://$PROJECT_DIR$/bower.json" />
+    <file url="file://$PROJECT_DIR$/bs-config.coffee" />
+    <file url="file://$PROJECT_DIR$/gulpfile.coffee" />
+    <file url="file://$PROJECT_DIR$/package.json" />
+    <file url="file://$PROJECT_DIR$/webpack.config.coffee" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="false" assert-keyword="false" jdk-15="false" project-jdk-name="1.7" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

@@ -47,3 +47,5 @@ node_modules
 dist/
 .tmp
 app.yaml
+
+.idea/workspace.xml

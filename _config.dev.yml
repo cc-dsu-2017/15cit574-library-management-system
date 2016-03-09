@@ -1,0 +1,13 @@
+
+url: "https://yalms.ccdsu2015.cf"
+
+imports:
+  css:
+    main:         /styles/main.css
+  js:
+    main:         /scripts/main.js
+
+config:
+  google:
+    # analytics:
+    #   id: UA-XXXXX-X

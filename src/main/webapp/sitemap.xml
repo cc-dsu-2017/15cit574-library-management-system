@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://yalms.ccdsu2015.cf/WEB-INF/error-handlers/bad_request.html</loc>
+</url>
+<url>
+<loc>https://yalms.ccdsu2015.cf/WEB-INF/error-handlers/default_error.html</loc>
+</url>
+<url>
+<loc>https://yalms.ccdsu2015.cf/error-handlers/default_error.html</loc>
+</url>
+<url>
+<loc>https://yalms.ccdsu2015.cf/WEB-INF/error-handlers/over_quota.html</loc>
+</url>
+<url>
+<loc>https://yalms.ccdsu2015.cf/error-handlers/over_quota.html</loc>
+</url>
+<url>
+<loc>https://yalms.ccdsu2015.cf/WEB-INF/error-handlers/server_error.html</loc>
+</url>
+</urlset>

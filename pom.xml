@@ -9,8 +9,8 @@
     <artifactId>library-management-system</artifactId>
 
     <name>Library Management System</name>
-    <description>Just Another Library Management System</description>
-    <url>https://library.ccdsu2015.cf</url>
+    <description>Yet Another Library Management System</description>
+    <url>https://yalms.ccdsu2015.cf</url>
     <organization>
         <name>The Hive</name>
         <url>https://thehive.cf</url>
@@ -28,31 +28,31 @@
             <name>Abhishek Munie</name>
             <email>dsu15mit001@dsu.edu.in</email>
             <roles>
-                <role>project lead</role>
+                <role>developer</role>
             </roles>
         </developer>
         <developer>
-            <id>abhishekmunie</id>
-            <name>Abhishek Munie</name>
-            <email>dsu15mit001@dsu.edu.in</email>
+            <id>dineshhiregange</id>
+            <name>Dinesh Hiregange</name>
+            <email>dsu15mit002@dsu.edu.in</email>
             <roles>
-                <role>project lead</role>
+                <role>developer</role>
             </roles>
         </developer>
         <developer>
-            <id>abhishekmunie</id>
-            <name>Abhishek Munie</name>
-            <email>dsu15mit001@dsu.edu.in</email>
+            <id>kaverappa-ib</id>
+            <name>Kaveriappa I B</name>
+            <email>dsu15mit003@dsu.edu.in</email>
             <roles>
-                <role>project lead</role>
+                <role>developer</role>
             </roles>
         </developer>
         <developer>
-            <id>abhishekmunie</id>
-            <name>Abhishek Munie</name>
-            <email>dsu15mit001@dsu.edu.in</email>
+            <id>nived123</id>
+            <name>Nived N</name>
+            <email>dsu15mit004@dsu.edu.in</email>
             <roles>
-                <role>project lead</role>
+                <role>developer</role>
             </roles>
         </developer>
     </developers>

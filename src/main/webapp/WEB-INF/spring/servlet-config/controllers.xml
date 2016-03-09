@@ -7,13 +7,13 @@
          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
          http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
-  <!--<bean class="com.abhishekmunie.epls.web.controller.MainController" />-->
-
-  <!--<bean id="sessionConfig" class="com.abhishekmunie.epls.web.session.SessionConfigData" />-->
+  <bean class="in.edu.dsu.cit15.lms.web.controller.MainController" />
+  <bean class="in.edu.dsu.cit15.lms.web.controller.AuthenticationController" />
+  <bean class="in.edu.dsu.cit15.lms.web.controller.UserController" />
 
   <!-- Root Static View Controllers -->
-  <!--<mvc:view-controller path="/" view-name="home"/>-->
+  <mvc:view-controller path="/" view-name="home"/>
   <!-- Auth Static View Controllers -->
-  <!--<mvc:view-controller path="/auth/signin" view-name="redirect:/dashboard"/>-->
-  <!--<mvc:view-controller path="/auth/disabled" view-name="auth/disabled"/>-->
+  <mvc:view-controller path="/auth/signin" view-name="redirect:/dashboard"/>
+  <mvc:view-controller path="/auth/disabled" view-name="auth/disabled"/>
 </beans>

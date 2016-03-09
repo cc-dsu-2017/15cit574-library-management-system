@@ -1,10 +1,10 @@
 {
-  "name": "ePLS",
-  "homepage": "https://github.com/cc-dsu-2017/15cit503-epls",
+  "name": "Library Management System",
+  "homepage": "https://github.com/cc-dsu-2017/15cit574-library-management-system",
   "authors": [
     "Abhishek Munie <dsu15mit001@dsu.edu.in>"
   ],
-  "description": "A cloud-based Personalized Learning System.",
+  "description": "Yet Another Library Management System.",
   "main": "",
   "moduleType": [],
   "keywords": [
