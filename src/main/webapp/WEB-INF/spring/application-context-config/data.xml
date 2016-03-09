@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="objectifyFactory" class="in.edu.dsu.cit15.lms.data.objectify.OfyServiceFactoryBean">
+        <property name="entityClasses">
+            <list>
+                <value>in.edu.dsu.cit15.lms.data.entity.User</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="userRepository" class="in.edu.dsu.cit15.lms.data.repositories.google.datastore.UserRepositoryImpl" />
+
+</beans>

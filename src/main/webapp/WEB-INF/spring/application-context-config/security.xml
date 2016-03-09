@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="
+               http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+               http://www.springframework.org/schema/security
+               http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+  <beans:bean id="googleUserAuthenticationEntryPoint"
+              class="in.edu.dsu.cit15.lms.web.security.GoogleUserAuthenticationEntryPoint"/>
+
+  <beans:bean id="googlUserAuthenticationProvider"
+              class="in.edu.dsu.cit15.lms.security.GoogleUserAuthenticationProvider">
+    <beans:property name="userRepository" ref="userRepository"/>
+  </beans:bean>
+
+  <authentication-manager alias="authenticationManager">
+    <authentication-provider ref="googlUserAuthenticationProvider"/>
+  </authentication-manager>
+
+
+  <beans:bean id="googleUserAuthenticationFilter"
+              class="in.edu.dsu.cit15.lms.web.security.GoogleUserAuthenticationFilter">
+    <beans:property name="authenticationManager" ref="authenticationManager"/>
+    <beans:property name="failureHandler">
+      <beans:bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+        <beans:property name="exceptionMappings">
+          <beans:map>
+            <beans:entry key="org.springframework.security.authentication.DisabledException" value="/auth/disabled"/>
+          </beans:map>
+        </beans:property>
+      </beans:bean>
+    </beans:property>
+  </beans:bean>
+
+  <http pattern="/_ah/**" security="none"/>
+  <http pattern="/bower_components/**" security="none"/>
+  <http pattern="/style/**" security="none"/>
+  <http pattern="/css/**" security="none"/>
+  <http pattern="/images/**" security="none"/>
+  <http pattern="/scripts/**" security="none"/>
+  <http pattern="/favicon.ico" security="none"/>
+  <http pattern="/auth/signin*" security="none"/>
+  <http pattern="/auth/disabled" security="none"/>
+  <http pattern="/~logs*" security="none"/>
+
+  <http disable-url-rewriting="false" use-expressions="true" entry-point-ref="googleUserAuthenticationEntryPoint">
+    <headers disabled="true"/>
+    <csrf disabled="true"/>
+    <intercept-url pattern="/" access="permitAll"/>
+    <intercept-url pattern="/user**" access="hasRole('USER')"/>
+    <intercept-url pattern="/admin**" access="hasRole('ADMIN')"/>
+    <intercept-url pattern="/dashboard**" access="hasRole('USER')"/>
+    <intercept-url pattern="/auth/signout*" access="hasRole('USER')"/>
+    <intercept-url pattern="/auth/signin*" access="hasRole('USER')"/>
+    <intercept-url pattern="/auth/signup*" access="hasRole('NEW_USER')"/>
+    <custom-filter position="PRE_AUTH_FILTER" ref="googleUserAuthenticationFilter"/>
+  </http>
+
+</beans:beans>

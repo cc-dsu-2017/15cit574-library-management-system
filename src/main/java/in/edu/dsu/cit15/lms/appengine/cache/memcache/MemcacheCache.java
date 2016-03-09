@@ -1,0 +1,115 @@
+/*
+ * Copyright 2013 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package in.edu.dsu.cit15.lms.appengine.cache.memcache;
+
+import com.google.appengine.api.memcache.MemcacheService;
+import org.springframework.cache.Cache;
+import org.springframework.cache.support.SimpleValueWrapper;
+import org.springframework.util.Assert;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+/**
+ * {@link Cache} implementation backed by Google App Engine {@link MemcacheService}.
+ *
+ * @author Marcel Overdijk
+ * @since 0.1
+ */
+public class MemcacheCache implements Cache {
+
+  private final MemcacheService memcacheService;
+
+  public MemcacheCache(MemcacheService memcacheService) {
+    Assert.notNull(memcacheService, "MemcacheService must not be null");
+    this.memcacheService = memcacheService;
+  }
+
+  @Override
+  public void put(Object key, Object value) {
+    memcacheService.put(key, toStoreValue(value));
+  }
+
+  @Override
+  public ValueWrapper putIfAbsent(Object key, Object value) {
+    ValueWrapper oldValue = this.get(key);
+    if (oldValue == null) {
+      this.put(key, value);
+    }
+    return oldValue;
+  }
+
+  @Override
+  public ValueWrapper get(Object key) {
+    Object value = memcacheService.get(key);
+    return (value != null ? new SimpleValueWrapper(value) : null);
+  }
+
+  @Override
+  public <T> T get(Object key, Class<T> type) {
+    Object rawValue = this.get(key);
+    T value = null;
+    try {
+      value = (T) rawValue;
+    } catch (Exception e) {
+      throw new IllegalStateException("Invalid type", e);
+    }
+    return value;
+  }
+
+  @Override
+  public void evict(Object key) {
+    memcacheService.delete(key);
+  }
+
+  @Override
+  public void clear() {
+    memcacheService.clearAll();
+  }
+
+  @Override
+  public String getName() {
+    return memcacheService.getNamespace();
+  }
+
+  @Override
+  public MemcacheService getNativeCache() {
+    return memcacheService;
+  }
+
+  @SuppressWarnings({"rawtypes", "unchecked"})
+  protected Object toStoreValue(Object value) {
+    // datanucleus: if value to store is StreamingQueryResult then get all objects from stream and return new list (stream cannot be stored in memcache)
+    try {
+      Class clazz = Class.forName("com.google.appengine.datanucleus.query.StreamingQueryResult");
+      if (clazz.isInstance(value)) {
+        return new ArrayList((Collection) value);
+      }
+    } catch (Exception ignore) {
+    }
+    // objectify: wrap lists as objectify returns list proxies which cannot be serialized directly (https://code.google.com/p/objectify-appengine/issues/detail?id=166)
+    try {
+      @SuppressWarnings("unused")
+      Class clazz = Class.forName("com.googlecode.objectify.Objectify");
+      if (value instanceof List) {
+        return new ArrayList((List) value);
+      }
+    } catch (Exception ignore) {
+    }
+    return value;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "ePLS",
+  "homepage": "https://github.com/cc-dsu-2017/15cit503-epls",
+  "authors": [
+    "Abhishek Munie <dsu15mit001@dsu.edu.in>"
+  ],
+  "description": "A cloud-based Personalized Learning System.",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "pls"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/webapp/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0",
+    "webshim": "~1.15.10"
+  }
+}
